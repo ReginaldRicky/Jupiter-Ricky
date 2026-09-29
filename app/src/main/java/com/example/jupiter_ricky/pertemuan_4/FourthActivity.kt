@@ -3,36 +3,38 @@ package com.example.jupiter_ricky.pertemuan_4
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.jupiter_ricky.MainActivity2
 import com.example.jupiter_ricky.R
-import com.example.jupiter_ricky.databinding.ActivityThirdBinding
 import com.example.jupiter_ricky.databinding.ActivityFourthBinding
-import com.example.jupiter_ricky.pertemuan_3.ThirdActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 
 class FourthActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFourthBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.e("onCreate", "{FourthActivity} dibuat pertama kali")
         enableEdgeToEdge()
+
         binding = ActivityFourthBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         val name = intent.getStringExtra("name")
         val from = intent.getStringExtra("from")
         val age = intent.getIntExtra("age", 0)
-        Log.e("Data Intent", "Nama: $name , Usia: $age, Asal: $from")
-        setContentView(binding.root)
+        Log.e("Data Intent", "Nama: (name , Usia:)age, Asal: $from")
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
         binding.btnKembali.setOnClickListener {
             val intent = Intent(this, MainActivity2::class.java)
             startActivity(intent)
@@ -46,6 +48,7 @@ class FourthActivity : AppCompatActivity() {
                 }
                 .show()
         }
+
         binding.btnShowAlertDialog.setOnClickListener {
             MaterialAlertDialogBuilder(this)
                 .setTitle("Konfirmasi")
@@ -60,15 +63,15 @@ class FourthActivity : AppCompatActivity() {
                 }
                 .show()
         }
+    }
 
-        override fun onStart() {
-            super.onStart()
-            Log.e("onStart", "onStart: {FourthActivity} terlihat di layar")
-        }
+    override fun onStart() {
+        super.onStart()
+        Log.e("onStart", "onStart: {FourthActivity} terlihat di layar")
+    }
 
-        override fun onDestroy() {
-            super.onDestroy()
-            Log.e("onDestroy", "{FourthActivity} dihapus dari stack")
-        }
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.e("onDestroy", "{FourthActivity} dihapus dari stack")
     }
 }

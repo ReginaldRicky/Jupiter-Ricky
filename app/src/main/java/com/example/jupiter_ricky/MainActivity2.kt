@@ -9,6 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.jupiter_ricky.databinding.ActivityMainBinding
 import com.example.jupiter_ricky.pertemuan_4.FourthActivity
+import com.example.jupiter_ricky.pertemuan_5.FifthActivity
 
 class MainActivity2 : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -28,6 +29,10 @@ class MainActivity2 : AppCompatActivity() {
             intent.putExtra("name", "Politeknik Caltex Riau")
             intent.putExtra("from", "Rumbai")
             intent.putExtra("age", 25)
+            startActivity(intent)
+        }
+        binding.btnToFifth.setOnClickListener {
+            val intent = Intent(this, FifthActivity::class.java)
             startActivity(intent)
         }
     }
