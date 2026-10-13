@@ -1,4 +1,4 @@
-package com.example.jupiter_ricky.pertemuan_4
+package com.example.jupiter_ricky.Home.pertemuan_4
 
 import android.content.Intent
 import android.os.Bundle

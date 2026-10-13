@@ -1,4 +1,4 @@
-package com.example.jupiter_ricky.pertemuan_5
+package com.example.jupiter_ricky.Home.pertemuan_5
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,7 +11,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.jupiter_ricky.R
 import com.example.jupiter_ricky.databinding.ActivityFifthBinding
-import com.example.jupiter_ricky.pertemuan_4.FourthActivity
 
 class FifthActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFifthBinding

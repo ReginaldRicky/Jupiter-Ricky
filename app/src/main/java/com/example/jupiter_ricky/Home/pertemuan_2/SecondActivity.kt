@@ -1,29 +1,35 @@
-package com.example.jupiter_ricky.pertemuan_3
+package com.example.jupiter_ricky.Home.pertemuan_2
 
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.jupiter_ricky.R
-import com.example.jupiter_ricky.databinding.ActivityThirdBinding
 
-class ThirdActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityThirdBinding
+class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityThirdBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_second)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        binding.btnKirim.setOnClickListener {
-            val noTujuan = binding.inputNoTujuan.text.toString()
-            Toast.makeText(this, "Pesan berhasil dikirim ke $noTujuan", Toast.LENGTH_SHORT).show()
+        val inputNama: EditText = findViewById(R.id.inputNama)
+        val btnSubmit: Button = findViewById(R.id.btnSubmit)
+
+        btnSubmit.setOnClickListener {
+            //Mengambil value dari inputNama dan menampilkan di Logcat
+            val nama = inputNama.text
+            Log.i("Klik btnSubmit","Tombol berhasil di tekan. Isi dari inputNama = $nama")
+
+            Toast.makeText(this, "Anda telah melakukan klik pada tombol Submit", Toast.LENGTH_SHORT).show()
         }
     }
 }

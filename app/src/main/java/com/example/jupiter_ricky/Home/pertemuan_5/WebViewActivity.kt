@@ -1,4 +1,4 @@
-package com.example.jupiter_ricky.pertemuan_5
+package com.example.jupiter_ricky.Home.pertemuan_5
 
 import android.os.Bundle
 import android.webkit.WebViewClient

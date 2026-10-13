@@ -35,7 +35,7 @@ class AuthActivity : AppCompatActivity() {
         val isLogin = sharedPref.getBoolean("isLogin", false)
         if (isLogin) {
             //Panggil Intent untuk ke MainActivity
-            val i = Intent(this, MainActivity2::class.java)
+            val i = Intent(this, BaseActivity::class.java)
             startActivity(i)
             finish()
         }
@@ -51,7 +51,7 @@ class AuthActivity : AppCompatActivity() {
                 editor.apply()
 
                 //berpindah ke main activity
-                val i = Intent(this, MainActivity2::class.java)
+                val i = Intent(this, BaseActivity::class.java)
                 startActivity(i)
                 Toast.makeText(this, "${username} - ${password}", Toast.LENGTH_SHORT).show()
                 finish()
