@@ -16,3 +16,4 @@ class Tutorial3Fragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_tutorial_3, container, false)
     }
+}
