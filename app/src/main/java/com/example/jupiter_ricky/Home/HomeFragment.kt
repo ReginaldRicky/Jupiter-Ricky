@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.jupiter_ricky.AuthActivity
+import com.example.jupiter_ricky.Home.Pertemuan_10.TenthActivity
 import com.example.jupiter_ricky.Home.pertemuan_4.FourthActivity
 import com.example.jupiter_ricky.Home.pertemuan_5.FifthActivity
 import com.example.jupiter_ricky.Home.pertemuan_6.SixthActivity
@@ -48,6 +49,10 @@ class HomeFragment : Fragment() {
         }
         binding.btnToSixth.setOnClickListener {
             val intent = Intent(requireContext(), SixthActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnToTenth.setOnClickListener {
+            val intent = Intent(requireContext(), TenthActivity::class.java)
             startActivity(intent)
         }
 
