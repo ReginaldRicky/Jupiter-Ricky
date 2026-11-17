@@ -1,103 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Home.HomeFragment">
-    <View
-        android:id="@+id/background_header"
-        android:layout_width="0dp"
-        android:layout_height="250dp"
-        android:background="@drawable/bg_header_wave"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
 
-    <Button
-        android:id="@+id/btnToFourth"
-        android:layout_width="183dp"
-        android:layout_height="46dp"
-        android:text="Kirim"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.674" />
-
-    <Button
-        android:id="@+id/btnToTenth"
-        android:layout_width="183dp"
-        android:layout_height="44dp"
-        android:text="Pertemuan 10"
-        android:backgroundTint="#AB2E2E"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.585" />
-
-    <Button
-        android:id="@+id/btnToEleventh"
-        android:layout_width="183dp"
-        android:layout_height="44dp"
-        android:backgroundTint="#AB2E2E"
-        android:text="Pertemuan 11"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.398" />
-
-    <Button
-        android:id="@+id/btnToFifth"
-        android:layout_width="186dp"
-        android:layout_height="43dp"
-        android:backgroundTint="#7A7A7A"
-        android:text="Pertemuan 5"
-        android:textColor="#FF9800"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.758" />
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <!-- APP BAR & TOOLBAR -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="#006064"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:subtitleTextColor="@android:color/white"
-        app:titleTextColor="@android:color/white" />
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-    <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="199dp"
-        android:layout_height="52dp"
-        android:backgroundTint="#000000"
-        android:text="LogOut"
-        android:textColor="#00FF00"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.853" />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-    <Button
-        android:id="@+id/btnToSixth"
-        android:layout_width="181dp"
-        android:layout_height="43dp"
-        android:backgroundTint="#AD6969"
-        android:text="Pertemuan 6"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    </com.google.android.material.appbar.AppBarLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- ISI SEMUA KONTEN AGAR BISA DI-SCROLL -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Menu Pertemuan"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- GRID TOMBOL NAVIGASI -->
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/grid_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:columnCount="2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                app:useDefaultMargins="true">
+
+                <Button
+                    android:id="@+id/btnToFourth"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Pertemuan 4"
+                    app:layout_columnWeight="1" />
+
+                <Button
+                    android:id="@+id/btnToFifth"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Pertemuan 5"
+                    app:layout_columnWeight="1" />
+
+                <Button
+                    android:id="@+id/btnToSixth"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Pertemuan 6"
+                    app:layout_columnWeight="1" />
+
+                <Button
+                    android:id="@+id/btnToTenth"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Pertemuan 10"
+                    app:layout_columnWeight="1" />
+
+                <Button
+                    android:id="@+id/btnToEleventh"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Pertemuan 11"
+                    app:layout_columnWeight="1" />
+
+                <Button
+                    android:id="@+id/btnLogout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#D32F2F"
+                    android:text="Logout"
+                    app:layout_columnWeight="1" />
+
+            </androidx.gridlayout.widget.GridLayout>
+
+            <!-- CAT FACT SECTION -->
+            <TextView
+                android:id="@+id/tvCatFact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="#F5F5F5"
+                android:padding="12dp"
+                android:text="Memuat fakta kucing..."
+                android:textSize="14sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/grid_button" />
+
+            <Button
+                android:id="@+id/btnRefresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Refresh Cat Fact"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCatFact" />
+
+            <!-- RECYCLERVIEW GALLERY -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvGallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:nestedScrollingEnabled="false"
+                android:padding="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnRefresh" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
